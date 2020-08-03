@@ -1,0 +1,18 @@
+<!--pages/calendar/calendar.wxml-->
+<!--标题和上月/下月按钮-->
+<view class="row">
+<button size="mini" bindtap="lastMonth" >《</button>
+<view class="title">calendar</view>
+<button size="mini" bindtap="nextMonth">》</button>
+</view>
+<!--当前所在的年月-->
+<view class="date">{{year}}年{{month}}月</view>
+<!--星期n表头-->
+<view class="row">
+<view class="week">周一   周二   周三   周四   周五   周六   周日</view>
+</view>
+<!--日期部分（问题所在）-->
+<view class="day" wx:for="{{riqi}}" wx:for-index="index" wx:for-item="items">
+<view class="day">{{items.date}}</view>
+</view>
+

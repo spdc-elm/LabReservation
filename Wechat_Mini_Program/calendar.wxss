@@ -1,0 +1,37 @@
+/* pages/calendar/calendar.wxss */
+.title {
+  font-size: 10vw;
+  font-weight: bold;
+}
+.date {
+  display: flex;
+  font-size: 6.25vw;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.week{
+  font-size: 6vw;
+  font-weight: bold;
+}
+button{
+  display: flex;
+  font-size: 10vw;
+  font-weight: normal;
+  place-content: center;
+  align-content: center;
+}
+
+.day{
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-direction: row;
+}
+
