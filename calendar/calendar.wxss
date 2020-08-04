@@ -1,0 +1,60 @@
+/* pages/calendar/calendar.wxss */
+.title {
+  font-size: 10vw;
+  font-weight: bold;
+}
+.date {
+  display: flex;
+  font-size: 6.25vw;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.week{
+  font-size: 6vw;
+}
+button{
+  display: flex;
+  font-size: 10vw;
+  font-weight: normal;
+  place-content: center;
+  align-content: center;
+}
+
+.day{
+  display: inline-block;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 4vw;
+  box-sizing: content-box;
+  flex-direction: row;
+  width:14.28571428571429%;
+  line-height: 70rpx;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-weight: bold;
+  color:gray;
+
+}
+.day.select{
+  background: rgb(49,120,228);
+  border-radius: 10rpx;
+  color: #fff;
+  width: 80%;
+
+}
+
+.day.today{
+  border-radius: 10rpx;
+  background:rgb(226, 221, 221);
+  color:black;
+  font-weight: bolder;
+  width:80%;
+}
