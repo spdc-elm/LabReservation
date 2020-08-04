@@ -18,7 +18,6 @@
 
 .week{
   font-size: 6vw;
-  font-weight: bold;
 }
 button{
   display: flex;
@@ -29,9 +28,33 @@ button{
 }
 
 .day{
-  display: flex;
+  display: inline-block;
   flex-wrap: wrap;
-  box-sizing: border-box;
+  justify-content: center;
+  font-size: 4vw;
+  box-sizing: content-box;
   flex-direction: row;
+  width:14.28571428571429%;
+  line-height: 70rpx;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-weight: bold;
+  color:gray;
+
+}
+.day.select{
+  background: rgb(49,120,228);
+  border-radius: 10rpx;
+  color: #fff;
+  width: 80%;
+
 }
 
+.day.today{
+  border-radius: 10rpx;
+  background:rgb(226, 221, 221);
+  color:black;
+  font-weight: bolder;
+  width:80%;
+}

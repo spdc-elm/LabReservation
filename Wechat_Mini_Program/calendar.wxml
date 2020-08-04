@@ -11,8 +11,16 @@
 <view class="row">
 <view class="week">周一   周二   周三   周四   周五   周六   周日</view>
 </view>
-<!--日期部分（问题所在）-->
-<view class="day" wx:for="{{riqi}}" wx:for-index="index" wx:for-item="items">
-<view class="day">{{items.date}}</view>
+
+<!--占位-->
+<view class="day"wx:for="{{noday}}">
+
 </view>
+<!--日期部分-->
+<view class="day" wx:for="{{riqi}}" wx:for-item="items">
+<view bindtap="select" data-date="{{items}}" class="day.select" wx:if="{{select==items}}">{{items}}</view>
+<view bindtap="select" data-date="{{items}}" class="day.today" wx:elif="{{year==thisYear && month==thisMonth && items==today}}">{{items}}</view>
+<view class="d" bindtap="select" data-date="{{items}}" wx:else>{{items}}</view>
+</view>
+
 

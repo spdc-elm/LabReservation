@@ -12,14 +12,28 @@ function getDaysOfMonth(year,month){
 function createItemsOfDays(days){
   let item=[]
   for (let i=1;i<=days;i++){
-    item.push({
-      date:i
-    })
+    item.push(i)
   }
-  console.log(item)
+  
   return item
 }
-
+function createItemsOfNodays(year,month){
+  let d = new Date(year,month-1,1)
+  let date = d.getDay()
+  
+  if (date==0){//星期日要空六个格
+    date = 7
+  }else{//星期一，空0格，星期二，空1格，因此date要减2
+    let date = date-1
+  }
+  
+  let items=[]
+  for (let i=1;i<date;i++){
+    items.push("")//占位
+  }
+  
+  return items
+}
 
 Page({
 
@@ -41,6 +55,15 @@ Page({
      let days=getDaysOfMonth(year,month)
      let item=createItemsOfDays(days)
      this.setData({riqi:item})
+     let noDayItem=createItemsOfNodays(year,month)
+     this.setData({noday:noDayItem})
+     //设置今日
+     let d=new Date()
+     this.setData({
+       thisYear:d.getFullYear(),
+       thisMonth:d.getMonth()+1,
+       today:d.getDate()
+     })
 
   },
 
@@ -92,6 +115,19 @@ Page({
   onShareAppMessage: function () {
 
   },
+  select: function(date){
+    this.setData({
+      select:date.currentTarget.dataset.date
+    })
+  },
+  //设置日子data
+  drawDays: function(){
+    let days=getDaysOfMonth(year,month)
+    let item=createItemsOfDays(days)
+    this.setData({riqi:item})
+    let noDayItem=createItemsOfNodays(year,month)
+    this.setData({noday:noDayItem})
+  },
 //上一页
   lastMonth: function() {
     if (month>1){
@@ -104,7 +140,7 @@ Page({
       month:month,
       year:year
     })
-    drawDays()
+    this.drawDays()
   },
   //下一页
   nextMonth: function() {
@@ -118,13 +154,10 @@ Page({
       month:month,
       year:year
     })
-    drawDays()
-  },
-  //设置日子data
-  drawDays(){
-    let days=getDaysOfMonth(year,month)
-    let item=createItemsOfDays(days)
-    this.setData({riqi:item})
+    this.drawDays()
   }
+  
 })
+
+
 
